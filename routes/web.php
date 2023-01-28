@@ -38,3 +38,21 @@ Route::group(['prefix' => ''], static function() {
 });
 
 
+Route::get('collection', function() {
+    $names = ['names' => ['Ann', 'Billy', 'Sam', 'Jhon', 'Andy', 'Feeby', 'Edd', 'Jil', 'Jeck', 'Freddy']];
+    $collection = collect([
+        ['product' => 'Desk', 'price' => 200],
+        ['product' => 'Chair', 'price' => 100],
+        ['product' => 'Bookcase', 'price' => 150],
+        ['product' => 'Door', 'price' => 100],
+    ]);
+
+    $collect = \collect($names);
+
+    dd($collection->where('price', 100)->toJson());
+
+    dd($collect->toJson());
+
+
+});
+
